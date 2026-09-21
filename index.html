@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Home Loan EMI Calculator in Hindi – EMI, Interest & Amortization</title>
+
+  <meta name="description" content="Free Home Loan EMI Calculator in Hindi. Calculate monthly EMI, total interest, total payment and year-wise amortization schedule for your home loan.">
+
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2563eb">
+
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/emi-calculator/">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Home Loan EMI Calculator",
+    "applicationCategory":"FinanceApplication",
+    "operatingSystem":"All",
+    "description":"Free home loan EMI calculator in Hindi with amortization schedule."
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+
+    <a class="brand" href="./">
+      <span class="brand-mark">₹</span>
+      <span>EMI<span>Wala</span></span>
+    </a>
+
+    <nav aria-label="मुख्य नेविगेशन">
+      <a href="#calculator">Calculator</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#guide">Guide</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <a class="nav-cta" href="#calculator">Calculate EMI</a>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">FREE • SIMPLE • MOBILE FRIENDLY</p>
+
+      <h1>Home Loan EMI Calculator</h1>
+
+      <p class="hero-text">
+        होम लोन की मासिक EMI, कुल ब्याज और कुल भुगतान तुरंत calculate करें।
+        अलग-अलग loan amount, interest rate और tenure को बदलकर अपने अनुमान की तुलना करें।
+      </p>
+
+      <div class="hero-points">
+        <span>✓ Monthly EMI</span>
+        <span>✓ Total Interest</span>
+        <span>✓ Year-wise Schedule</span>
+      </div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mini-label">उदाहरण</div>
+      <strong>₹50 लाख</strong>
+      <span>8.5% • 20 साल</span>
+      <b>≈ ₹43,391 / माह</b>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="calculator" class="section">
+
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">CALCULATOR</p>
+      <h2>अपना Home Loan EMI calculate करें</h2>
+      <p>
+        नीचे की values बदलते ही result अपने आप update होगा।
+      </p>
+    </div>
+
+
+    <div class="calculator-card">
+
+      <div class="inputs">
+
+        <div class="field">
+          <label for="amount">Loan Amount (₹)</label>
+
+          <div class="input-row">
+            <input
+              id="amount"
+              type="number"
+              min="100000"
+              max="100000000"
+              step="100000"
+              value="3000000"
+              inputmode="numeric"
+            >
+            <span>₹</span>
+          </div>
+
+          <input
+            id="amountRange"
+            class="range"
+            type="range"
+            min="100000"
+            max="100000000"
+            step="100000"
+            value="3000000"
+            aria-label="Loan amount slider"
+          >
+        </div>
+
+
+        <div class="field">
+
+          <label for="rate">
+            Interest Rate (% per year)
+          </label>
+
+          <div class="input-row">
+            <input
+              id="rate"
+              type="number"
+              min="0"
+              max="30"
+              step="0.01"
+              value="8.5"
+              inputmode="decimal"
+            >
+            <span>%</span>
+          </div>
+
+          <input
+            id="rateRange"
+            class="range"
+            type="range"
+            min="0"
+            max="30"
+            step="0.01"
+            value="8.5"
+            aria-label="Interest rate slider"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="tenure">
+            Loan Tenure
+          </label>
+
+          <div class="input-row">
+
+            <input
+              id="tenure"
+              type="number"
+              min="1"
+              max="360"
+              step="1"
+              value="20"
+              inputmode="numeric"
+            >
+
+            <select
+              id="tenureUnit"
+              aria-label="Tenure unit"
+            >
+              <option value="years">Years</option>
+              <option value="months">Months</option>
+            </select>
+
+          </div>
+
+          <input
+            id="tenureRange"
+            class="range"
+            type="range"
+            min="1"
+            max="30"
+            step="1"
+            value="20"
+            aria-label="Loan tenure slider"
+          >
+
+        </div>
+
+
+        <button
+          id="resetBtn"
+          class="secondary-btn"
+          type="button"
+        >
+          Reset to default
+        </button>
+
+        <p
+          id="error"
+          class="error"
+          role="alert"
+          hidden
+        ></p>
+
+      </div>
+
+
+      <div class="results">
+
+        <div class="result-main">
+
+          <span>Monthly EMI</span>
+
+          <strong id="emi">₹0</strong>
+
+          <small>
+            आपकी अनुमानित मासिक किस्त
+          </small>
+
+        </div>
+
+
+        <div class="result-grid">
+
+          <div>
+            <span>Principal</span>
+            <b id="principal">₹0</b>
+          </div>
+
+          <div>
+            <span>Total Interest</span>
+            <b id="interest">₹0</b>
+          </div>
+
+          <div>
+            <span>Total Payment</span>
+            <b id="total">₹0</b>
+          </div>
+
+          <div>
+            <span>Interest Share</span>
+            <b id="ratio">0%</b>
+          </div>
+
+        </div>
+
+
+        <div class="chart-wrap">
+
+          <div
+            class="donut"
+            id="donut"
+          >
+            <div>
+              <b id="donutPercent">0%</b>
+              <span>interest</span>
+            </div>
+          </div>
+
+
+          <div class="legend">
+
+            <span>
+              <i class="dot principal-dot"></i>
+              Principal
+              <b id="legendPrincipal">₹0</b>
+            </span>
+
+            <span>
+              <i class="dot interest-dot"></i>
+              Interest
+              <b id="legendInterest">₹0</b>
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="schedule" class="section alt">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <p class="eyebrow">AMORTIZATION</p>
+
+      <h2>
+        Year-wise Home Loan Amortization Schedule
+      </h2>
+
+      <p>
+        हर साल principal और interest में कितना भुगतान हो रहा है,
+        यह नीचे देखें।
+      </p>
+
+    </div>
+
+
+    <div class="table-card">
+
+      <div class="table-head">
+
+        <span>Year-wise breakdown</span>
+
+        <button
+          id="toggleSchedule"
+          class="secondary-btn"
+          type="button"
+        >
+          Show schedule
+        </button>
+
+      </div>
+
+
+      <div id="scheduleWrap" hidden>
+
+        <div class="table-scroll">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Opening Balance</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Total Payment</th>
+                <th>Closing Balance</th>
+              </tr>
+            </thead>
+
+            <tbody id="scheduleBody"></tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="guide" class="section">
+
+  <div class="container content">
+
+    <div class="section-heading">
+      <p class="eyebrow">GUIDE</p>
+      <h2>Home Loan EMI को समझें</h2>
+    </div>
+
+
+    <article>
+
+      <h2>
+        Home Loan EMI क्या होती है?
+      </h2>
+
+      <p>
+        EMI यानी Equated Monthly Instalment वह नियमित भुगतान है
+        जो borrower loan को चुकाने के लिए करता है।
+        सामान्य EMI calculation में हर payment के अंदर
+        principal और interest दोनों का हिस्सा होता है।
+      </p>
+
+      <p>
+        शुरुआत में interest का हिस्सा अधिक हो सकता है और समय के साथ
+        principal का हिस्सा बढ़ सकता है; वास्तविक schedule lender
+        और loan terms पर निर्भर करता है।
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h2>
+        Home Loan EMI कैसे calculate होती है?
+      </h2>
+
+      <p>
+        सामान्य reducing-balance EMI formula है:
+      </p>
+
+      <div class="formula">
+
+        EMI =
+        P × R × (1 + R)<sup>N</sup>
+        ÷
+        ((1 + R)<sup>N</sup> − 1)
+
+      </div>
+
+      <ul>
+
+        <li>
+          <strong>P</strong> = loan principal
+        </li>
+
+        <li>
+          <strong>R</strong> = annual interest rate ÷ 12 ÷ 100
+        </li>
+
+        <li>
+          <strong>N</strong> = total number of monthly instalments
+        </li>
+
+      </ul>
+
+      <p>
+        अगर interest rate 0% हो, तो EMI principal को
+        total months से divide करके निकाली जाती है।
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h2>
+        Example Calculation: ₹50 लाख का Home Loan
+      </h2>
+
+      <p>
+        उदाहरण के लिए ₹50,00,000 loan, 8.5% annual interest और
+        20 साल tenure पर standard EMI formula से EMI लगभग
+        <strong>₹43,391 प्रति माह</strong> आती है।
+      </p>
+
+      <p>
+        Exact figures lender की actual terms, fees और payment timing
+        के कारण अलग हो सकती हैं।
+      </p>
+
+
+      <div class="comparison-grid">
+
+        <div>
+          <b>Loan</b>
+          <span>₹50,00,000</span>
+        </div>
+
+        <div>
+          <b>Rate</b>
+          <span>8.5% p.a.</span>
+        </div>
+
+        <div>
+          <b>Tenure</b>
+          <span>20 years</span>
+        </div>
+
+        <div>
+          <b>Approx EMI</b>
+          <span>₹43,391/month</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article>
+
+      <h2>
+        EMI को प्रभावित करने वाले मुख्य factors
+      </h2>
+
+
+      <div class="cards">
+
+        <div class="info-card">
+
+          <h3>1. Loan Amount</h3>
+
+          <p>
+            Principal जितना अधिक होगा, बाकी terms समान रहने पर
+            EMI और total interest भी बढ़ सकता है।
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>2. Interest Rate</h3>
+
+          <p>
+            Rate में बदलाव से monthly EMI और loan की कुल
+            interest cost बदलती है।
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>3. Tenure</h3>
+
+          <p>
+            लंबी tenure से monthly EMI कम हो सकती है,
+            लेकिन total interest अधिक हो सकता है।
+          </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+          <h3>4. Loan Terms</h3>
+
+          <p>
+            Processing fee, rate type, prepayment rules और
+            अन्य charges lender तथा product के अनुसार अलग हो सकते हैं।
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article>
+
+      <h2>
+        Home Loan EMI कम करने के practical तरीके
+      </h2>
+
+      <ol>
+
+        <li>
+          <strong>Higher down payment:</strong>
+          कम principal borrow करने पर EMI कम हो सकती है।
+        </li>
+
+        <li>
+          <strong>Interest rate compare करें:</strong>
+          अलग lenders की applicable rates और terms देखें।
+        </li>
+
+        <li>
+          <strong>Prepayment:</strong>
+          अगर loan terms अनुमति दें, तो extra payment से
+          outstanding principal और future interest कम हो सकता है।
+        </li>
+
+        <li>
+          <strong>Tenure carefully चुनें:</strong>
+          कम tenure से total interest कम हो सकता है,
+          लेकिन monthly EMI बढ़ सकती है।
+        </li>
+
+        <li>
+          <strong>Balance transfer की लागत देखें:</strong>
+          सिर्फ कम rate नहीं, बल्कि transfer-related charges
+          और remaining tenure को भी compare करें।
+        </li>
+
+      </ol>
+
+    </article>
+
+
+    <article>
+
+      <h2>
+        Calculator का इस्तेमाल कैसे करें?
+      </h2>
+
+      <ol class="steps">
+
+        <li>
+          Loan amount दर्ज करें।
+        </li>
+
+        <li>
+          Annual interest rate दर्ज करें।
+        </li>
+
+        <li>
+          Tenure years या months में चुनें।
+        </li>
+
+        <li>
+          Monthly EMI और total interest देखें।
+        </li>
+
+        <li>
+          Amortization schedule खोलकर year-wise breakdown देखें।
+        </li>
+
+      </ol>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<section id="faq" class="section alt">
+
+  <div class="container content">
+
+    <div class="section-heading">
+
+      <p class="eyebrow">FAQ</p>
+
+      <h2>
+        Home Loan EMI Calculator – FAQs
+      </h2>
+
+    </div>
+
+
+    <details>
+
+      <summary>
+        ₹30 लाख Home Loan की EMI कितनी होगी?
+      </summary>
+
+      <p>
+        EMI interest rate और tenure पर निर्भर करती है।
+        Calculator में ₹30 लाख डालकर अपनी applicable rate
+        और tenure चुनें।
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        क्या tenure बढ़ाने से EMI कम होती है?
+      </summary>
+
+      <p>
+        समान principal और interest rate पर tenure बढ़ाने से
+        सामान्यतः monthly EMI कम होती है, लेकिन total interest बढ़ सकता है।
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        Prepayment से EMI कम होती है या tenure?
+      </summary>
+
+      <p>
+        यह lender के विकल्प और आपके repayment instruction पर निर्भर करता है।
+        कुछ cases में EMI घट सकती है और कुछ में tenure घट सकता है।
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        Fixed और floating interest rate में क्या अंतर है?
+      </summary>
+
+      <p>
+        Fixed rate में rate एक निर्धारित अवधि या terms के अनुसार तय हो सकता है,
+        जबकि floating rate benchmark और loan terms के अनुसार बदल सकता है।
+        Exact rules lender और agreement पर निर्भर करते हैं।
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        क्या calculator में processing fee शामिल है?
+      </summary>
+
+      <p>
+        नहीं। यह calculator principal, interest और repayment schedule
+        का estimate देता है। Processing fee, insurance, taxes और अन्य
+        charges अलग हो सकते हैं।
+      </p>
+
+    </details>
+
+
+    <details>
+
+      <summary>
+        क्या यह calculator bank की final EMI बताता है?
+      </summary>
+
+      <p>
+        यह standard EMI formula पर estimate देता है।
+        Final repayment schedule आपके lender की sanction terms,
+        rate, dates और charges पर निर्भर करेगा।
+      </p>
+
+    </details>
+
+  </div>
+
+</section>
+
+
+<section class="section related">
+
+  <div class="container">
+
+    <h2>Related Calculators</h2>
+
+    <div class="related-grid">
+
+      <a href="#calculator">
+        Personal Loan EMI Calculator
+      </a>
+
+      <a href="#calculator">
+        Car Loan EMI Calculator
+      </a>
+
+      <a href="#calculator">
+        Home Loan Prepayment Calculator
+      </a>
+
+      <a href="#calculator">
+        Home Loan Eligibility Calculator
+      </a>
+
+      <a href="#calculator">
+        Compound Interest Calculator
+      </a>
+
+      <a href="#calculator">
+        Simple Interest Calculator
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-grid">
+
+    <div>
+
+      <a class="brand" href="./">
+
+        <span class="brand-mark">₹</span>
+
+        <span>
+          EMI<span>Wala</span>
+        </span>
+
+      </a>
+
+      <p>
+        Simple and useful financial calculators in Hindi.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>Quick Links</h3>
+
+      <a href="#calculator">Calculator</a>
+      <a href="#guide">Guide</a>
+      <a href="#faq">FAQ</a>
+
+    </div>
+
+
+    <div>
+
+      <h3>Information</h3>
+
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Disclaimer</a>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+
+    © <span id="year"></span> EMIWala.
+    For educational estimation only.
+
+  </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+  </html>
