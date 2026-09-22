@@ -1,141 +1,29 @@
-<!doctype html>
-<html lang="hi-IN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home Loan EMI Calculator in Hindi – EMI, Interest & Amortization | EMIWala</title>
-<meta name="description" content="EMIWala का free Home Loan EMI Calculator: loan amount, interest rate और tenure डालकर EMI, total interest, total payment और year-wise amortization schedule तुरंत देखें।">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="theme-color" content="#0b5cff">
-<link rel="canonical" href="https://sudeeshkumparc-ai.github.io/emi-calculator/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Home Loan EMI Calculator in Hindi | EMIWala">
-<meta property="og:description" content="EMI, total interest, total payment और amortization schedule की आसान गणना।">
-<meta property="og:url" content="https://sudeeshkumparc-ai.github.io/emi-calculator/">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="style.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"EMIWala Home Loan EMI Calculator","url":"https://sudeeshkumparc-ai.github.io/emi-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"hi-IN","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"₹50 लाख Home Loan की EMI कितनी हो सकती है?","acceptedAnswer":{"@type":"Answer","text":"8.5% वार्षिक ब्याज और 20 साल की अवधि पर standard reducing-balance formula से EMI लगभग ₹43,391 आती है। वास्तविक lender calculation अलग हो सकती है।"}},
-{"@type":"Question","name":"क्या लंबी loan tenure से EMI कम होती है?","acceptedAnswer":{"@type":"Answer","text":"बाकी assumptions समान हों तो लंबी tenure से monthly EMI कम हो सकती है, लेकिन कुल ब्याज अधिक हो सकता है।"}}
-]}
-</script>
-</head>
-<body>
-<a class="skip" href="#main">मुख्य सामग्री पर जाएँ</a>
-<header class="site-header">
-  <div class="wrap nav">
-    <a class="brand" href="./" aria-label="EMIWala Home">
-      <span class="brand-mark">₹</span><span><strong>EMI<span>Wala</span></strong><small>Smart Loan Calculators</small></span>
-    </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
-    <nav id="navMenu" class="nav-links">
-      <a href="./">Home</a><a href="#calculator">EMI Calculator</a><a href="compare.html">Compare</a><a href="guides.html">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<section class="hero">
- <div class="wrap hero-grid">
-  <div>
-   <div class="eyebrow">FREE • HINDI • NO SIGNUP</div>
-   <h1>Home Loan EMI Calculator</h1>
-   <p class="hero-copy">Loan amount, interest rate और tenure बदलकर अपनी अनुमानित monthly EMI, total interest और total repayment एक ही जगह समझें।</p>
-   <div class="hero-actions"><a class="btn primary" href="#calculator">Calculate EMI <span>→</span></a><a class="btn ghost" href="guides.html">EMI Guide</a></div>
-   <div class="trust-row"><span>✓ Indian Rupees</span><span>✓ Live calculation</span><span>✓ Amortization</span></div>
-  </div>
-  <div class="hero-panel">
-   <div class="panel-label">Example</div><div class="big">₹50 लाख</div><div class="muted">8.5% • 20 साल</div><div class="example-emi">≈ ₹43,391 <small>/ month</small></div>
-   <div class="mini-note">Standard EMI formula पर आधारित अनुमान</div>
-  </div>
- </div>
-</section>
-
-<section id="calculator" class="wrap section">
- <div class="section-title"><div><div class="eyebrow">CALCULATOR</div><h2>अपनी EMI calculate करें</h2><p>Input या slider बदलते ही results update होते हैं।</p></div><button class="soft-btn" id="shareBtn">↗ Share calculation</button></div>
- <div class="calc-grid">
-  <form class="card calculator-card" id="calcForm" novalidate>
-   <div class="card-top"><h3>Loan details</h3><span class="live-pill">● LIVE</span></div>
-   <label for="amount">Loan amount</label>
-   <div class="money-input"><span>₹</span><input id="amount" value="3000000" inputmode="numeric" aria-describedby="amountHelp"></div>
-   <input id="amountRange" type="range" min="100000" max="100000000" step="100000" value="3000000">
-   <div class="range-label"><span>₹1 लाख</span><span>₹10 करोड़</span></div>
-
-   <label for="rate">Annual interest rate</label>
-   <div class="money-input"><input id="rate" value="8.5" inputmode="decimal"><span>%</span></div>
-   <input id="rateRange" type="range" min="0" max="30" step="0.05" value="8.5">
-   <div class="range-label"><span>0%</span><span>30%</span></div>
-
-   <div class="label-row"><label for="tenure">Loan tenure</label><div class="toggle"><button type="button" data-unit="years" class="active">Years</button><button type="button" data-unit="months">Months</button></div></div>
-   <div class="money-input"><input id="tenure" value="20" inputmode="numeric"><span id="tenureUnit">years</span></div>
-   <input id="tenureRange" type="range" min="1" max="30" step="1" value="20">
-   <div class="range-label"><span id="minTenure">1 year</span><span id="maxTenure">30 years</span></div>
-
-   <div class="advanced-row"><span>Prepayment</span><button type="button" class="link-btn" id="togglePrepay">Add extra payment +</button></div>
-   <div id="prepayBox" class="prepay-box" hidden>
-     <label for="extraMonthly">Extra monthly payment</label>
-     <div class="money-input"><span>₹</span><input id="extraMonthly" value="0" inputmode="numeric"><span>/mo</span></div>
-     <p>यह optional estimate है; lender की prepayment rules अलग हो सकती हैं।</p>
-   </div>
-   <div class="form-actions"><button class="btn primary full" type="button" id="resetBtn">Reset calculator</button><button class="btn outline full" type="button" id="printBtn">Print / Save PDF</button></div>
-  </form>
-
-  <div class="results-stack">
-   <div class="card result-card">
-    <div class="card-top"><h3>Estimated repayment</h3><span class="status-dot">Updated instantly</span></div>
-    <div class="main-result"><span>Monthly EMI</span><strong id="emi">₹26,035</strong><small>Principal + interest</small></div>
-    <div class="result-grid">
-      <div><span>Principal</span><b id="principal">₹30,00,000</b></div>
-      <div><span>Total interest</span><b id="interest">₹32,48,352</b></div>
-      <div><span>Total payment</span><b id="total">₹62,48,352</b></div>
-      <div><span>Interest / principal</span><b id="ratio">108.3%</b></div>
-    </div>
-    <div class="chart-wrap"><div class="donut"><svg viewBox="0 0 200 200" aria-label="Principal and interest chart"><circle class="donut-bg" cx="100" cy="100" r="72"/><circle id="principalArc" class="arc principal-arc" cx="100" cy="100" r="72" pathLength="100"/><circle id="interestArc" class="arc interest-arc" cx="100" cy="100" r="72" pathLength="100"/></svg><div><b id="interestShare">52%</b><small>interest share</small></div></div><div class="legend"><p><i class="dot blue"></i> Principal <b id="legendPrincipal">₹30,00,000</b></p><p><i class="dot purple"></i> Interest <b id="legendInterest">₹32,48,352</b></p></div></div>
-    <p class="disclaimer">यह calculator mathematical estimate देता है। Bank की final EMI fees, dates, rounding, rate reset और agreement terms के कारण अलग हो सकती है।</p>
-   </div>
-   <div class="card insight-card"><div><strong id="interestMessage">Total interest को ध्यान से देखें</strong><p id="interestMessageText">Long tenure में monthly EMI कम हो सकती है, लेकिन total interest बढ़ सकता है।</p></div><a href="guides.html">Learn why →</a></div>
-  </div>
- </div>
-</section>
-
-<section class="wrap section">
- <div class="section-title"><div><div class="eyebrow">REPAYMENT</div><h2>Year-wise amortization schedule</h2><p>हर साल principal, interest और closing balance देखें।</p></div><div class="button-row"><button class="soft-btn" id="expandAll">Expand all</button><button class="soft-btn" id="downloadCsv">Download CSV</button></div></div>
- <div class="card table-card"><div class="table-scroll"><table><thead><tr><th>Year</th><th>Principal</th><th>Interest</th><th>Total paid</th><th>Closing balance</th><th></th></tr></thead><tbody id="scheduleBody"></tbody></table></div></div>
-</section>
-
-<section class="wrap section content-grid">
- <article class="card article">
-  <div class="eyebrow">HOME LOAN GUIDE</div><h2>Home Loan EMI क्या होती है?</h2>
-  <p>EMI यानी Equated Monthly Instalment, loan को तय अवधि में चुकाने के लिए किया जाने वाला नियमित भुगतान है। Standard reducing-balance calculation में EMI मुख्य रूप से <strong>loan amount, annual interest rate और tenure</strong> पर निर्भर करती है।</p>
-  <h2>EMI का formula</h2>
-  <div class="formula">EMI = [P × R × (1 + R)<sup>N</sup>] ÷ [(1 + R)<sup>N</sup> − 1]</div>
-  <ul><li><strong>P</strong> = principal / loan amount</li><li><strong>R</strong> = annual interest rate ÷ 12 ÷ 100</li><li><strong>N</strong> = total number of monthly instalments</li></ul>
-  <h2>EMI किन चीज़ों से बदलती है?</h2>
-  <div class="info-cards"><div><b>Loan amount</b><span>Principal बढ़ने पर, बाकी assumptions समान रहने पर EMI बढ़ती है।</span></div><div><b>Interest rate</b><span>Rate में बदलाव monthly payment और total interest दोनों को प्रभावित कर सकता है।</span></div><div><b>Tenure</b><span>Longer tenure EMI घटा सकती है, लेकिन कुल interest बढ़ सकता है।</span></div></div>
-  <h2>₹50 लाख Home Loan example</h2>
-  <p>8.5% annual rate और 20 साल की tenure पर standard formula से monthly EMI लगभग <strong>₹43,391</strong> आती है। यह illustrative calculation है, bank offer नहीं।</p>
-  <h2>Calculator का सही उपयोग कैसे करें?</h2>
-  <ol><li>Loan amount दर्ज करें।</li><li>Annual interest rate डालें।</li><li>Tenure years या months में चुनें।</li><li>Monthly EMI के साथ total interest और total payment देखें।</li><li>Year-wise schedule से repayment का breakup समझें।</li></ol>
- </article>
- <aside class="card side-card"><div class="eyebrow">POPULAR</div><h3>Useful calculators & guides</h3><a href="compare.html">EMI Comparison →</a><a href="guides.html#prepayment">Home Loan Prepayment Guide →</a><a href="guides.html#interest">Interest कैसे calculate होता है? →</a><a href="guides.html#tenure">Loan tenure का असर →</a><a href="guides.html#fees">Home loan charges समझें →</a></aside>
-</section>
-
-<section class="wrap section faq-section">
- <div class="eyebrow">FAQ</div><h2>Home Loan EMI के common सवाल</h2>
- <div class="faq-grid">
-  <details><summary>₹50 लाख Home Loan की EMI कितनी हो सकती है?</summary><p>8.5% annual rate और 20 साल की tenure पर लगभग ₹43,391। Actual lender calculation अलग हो सकती है।</p></details>
-  <details><summary>क्या tenure बढ़ाने से EMI कम होती है?</summary><p>आम तौर पर बाकी assumptions समान रहने पर monthly EMI कम हो सकती है, लेकिन total interest अधिक हो सकता है।</p></details>
-  <details><summary>क्या calculator का result final bank EMI है?</summary><p>नहीं। यह standard mathematical estimate है। Lender की fees, dates, rounding और agreement terms अलग हो सकती हैं।</p></details>
-  <details><summary>Floating interest rate बदलने पर क्या होता है?</summary><p>Loan agreement और lender policy के अनुसार EMI, remaining tenure या दोनों बदल सकते हैं।</p></details>
- </div>
-</section>
-</main>
-
-<footer class="footer"><div class="wrap footer-grid"><div><a class="brand footer-brand" href="./"><span class="brand-mark">₹</span><span><strong>EMI<span>Wala</span></strong><small>Smart Loan Calculators</small></span></a><p>Free Hindi calculators और practical loan education, ताकि numbers को समझना आसान हो।</p></div><div><b>Explore</b><a href="./">Home</a><a href="#calculator">EMI Calculator</a><a href="compare.html">Compare</a><a href="guides.html">Guides</a></div><div><b>Company</b><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></div></div><div class="wrap footer-bottom">© <span id="year"></span> EMIWala • Educational estimates only</div></footer>
-<script src="script.js" defer></script>
-</body>
-</html>
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home Loan EMI Calculator 2026 | EMIWala</title><meta name="description" content="EMIWala free Home Loan EMI Calculator. Years or Months tenure, EMI, interest, total payment and amortization schedule."><meta name="robots" content="index,follow"><meta name="theme-color" content="#2563eb"><script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script><style>html{scroll-behavior:smooth}body{font-family:Inter,system-ui,sans-serif}.dark{color-scheme:dark}input[type=range]{accent-color:#2563eb}@media print{header,.hero,.no-print,footer{display:none!important}body{background:white!important;color:#111!important}}</style></head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur border-b border-slate-200 dark:border-slate-800"><div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"><a href="#" class="font-black text-2xl">EMI<span class="text-blue-600">Wala</span></a><nav class="hidden md:flex gap-6 text-sm font-bold"><a href="#calculator">Calculator</a><a href="#schedule">Schedule</a><a href="#guides">Guides</a><a href="#faq">FAQ</a></nav><button id="dark" class="w-10 h-10 rounded-xl border">🌙</button></div></header>
+<section class="hero bg-gradient-to-br from-blue-700 via-indigo-700 to-purple-700 text-white"><div class="max-w-7xl mx-auto px-4 py-14 md:py-20"><span class="bg-white/15 rounded-full px-3 py-1 text-sm">Free • Mobile Friendly</span><h1 class="text-4xl md:text-6xl font-black mt-5">Home Loan EMI Calculator</h1><p class="mt-4 text-lg max-w-2xl text-blue-50">Loan amount, interest rate और tenure को <b>Years या Months</b> में चुनकर EMI तुरंत calculate करें।</p><a href="#calculator" class="inline-block mt-7 bg-white text-blue-700 px-6 py-3 rounded-xl font-bold">Calculate EMI ↓</a></div></section>
+<main id="calculator" class="max-w-7xl mx-auto px-4 -mt-8 relative z-10"><div class="grid lg:grid-cols-5 gap-5">
+<section class="lg:col-span-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-3xl shadow-xl border border-slate-200 dark:border-slate-800 p-5 md:p-7"><div class="flex justify-between"><div><h2 class="text-2xl font-black">EMI Calculator</h2><p class="text-sm text-slate-500">Input बदलने पर ही result बदलेगा।</p></div><button id="reset" class="text-blue-600 font-bold">Reset</button></div>
+<div class="space-y-6 mt-6">
+<div><label class="font-bold">Loan Amount</label><input id="amt" type="number" min="100" max="100000000" step="100" value="5000000" class="w-full mt-2 p-3 rounded-xl border dark:bg-slate-950"><input id="amtr" type="range" min="100" max="100000000" step="100" value="5000000" class="w-full mt-3"></div>
+<div><div class="flex justify-between items-center"><label class="font-bold">Interest Rate</label><div><button id="annual" class="px-3 py-2 rounded-l-lg bg-blue-600 text-white text-sm font-bold">Annual %</button><button id="monthly" class="px-3 py-2 rounded-r-lg border text-sm font-bold">Monthly %</button></div></div><input id="rate" type="number" min="0" max="100" step="0.01" value="8.5" class="w-full mt-2 p-3 rounded-xl border dark:bg-slate-950"><input id="rater" type="range" min="0" max="30" step="0.01" value="8.5" class="w-full mt-3"></div>
+<div><label class="font-bold">Interest Method</label><div class="grid grid-cols-2 gap-2 mt-2"><button id="reduce" class="method active p-3 rounded-xl border-2 border-blue-600 bg-blue-50 dark:bg-blue-950 font-bold">Reducing Balance</button><button id="flat" class="method p-3 rounded-xl border font-bold">Flat Interest</button></div></div>
+<div><label class="font-bold">Loan Tenure</label><div class="grid grid-cols-2 gap-2 mt-2"><button id="years" class="tenure active p-3 rounded-xl border-2 border-blue-600 bg-blue-50 dark:bg-blue-950 font-bold">Years</button><button id="months" class="tenure p-3 rounded-xl border font-bold">Months</button></div><div class="flex gap-3 mt-3"><input id="term" type="number" min="1" max="30" value="20" class="flex-1 p-3 rounded-xl border dark:bg-slate-950"><span id="unit" class="grid place-items-center px-4 rounded-xl bg-slate-100 dark:bg-slate-800 font-bold">Years</span></div><input id="termr" type="range" min="1" max="30" value="20" class="w-full mt-3"><p id="hint" class="text-xs text-slate-500 mt-2">20 Years = 240 Months</p></div>
+<div><label class="font-bold">Extra Monthly Payment <span class="text-slate-400 text-sm">(optional)</span></label><input id="extra" type="number" min="0" value="0" class="w-full mt-2 p-3 rounded-xl border dark:bg-slate-950"></div>
+</div></section>
+<section class="lg:col-span-2 space-y-5"><div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl border"><p class="text-sm text-slate-500">Monthly EMI / Instalment</p><div id="emi" class="text-4xl font-black text-blue-600 mt-2">₹0</div><p id="mode" class="text-xs text-slate-500 mt-2"></p></div><div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-5"><div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border shadow"><p class="text-sm text-slate-500">Total Interest</p><b id="interest" class="text-2xl block mt-1">₹0</b></div><div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border shadow"><p class="text-sm text-slate-500">Total Payment</p><b id="total" class="text-2xl block mt-1">₹0</b></div></div><div id="pre" class="hidden bg-blue-50 dark:bg-blue-950/40 rounded-3xl p-5 border"><b>Prepayment Impact</b><div class="grid grid-cols-2 mt-3"><div><small>New tenure</small><b id="newterm" class="block"></b></div><div><small>Interest saved</small><b id="saved" class="block"></b></div></div></div><div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border shadow"><b>Principal vs Interest</b><div class="h-64 mt-3"><canvas id="chart"></canvas></div></div></section></div></main>
+<section id="schedule" class="max-w-7xl mx-auto px-4 py-12"><div class="flex flex-col sm:flex-row justify-between gap-3"><div><h2 class="text-3xl font-black">Year-wise Amortization Schedule</h2><p class="text-slate-500">Principal, interest और closing balance.</p></div><div class="flex gap-2 no-print"><button id="csv" class="bg-slate-900 text-white px-4 py-2 rounded-xl font-bold">Download CSV</button><button onclick="print()" class="bg-blue-600 text-white px-4 py-2 rounded-xl font-bold">Print / PDF</button></div></div><div class="overflow-x-auto mt-6 rounded-2xl border bg-white dark:bg-slate-900"><table class="w-full text-sm"><thead class="bg-slate-100 dark:bg-slate-800"><tr><th class="p-3 text-left">Year</th><th class="p-3 text-right">Opening</th><th class="p-3 text-right">Principal</th><th class="p-3 text-right">Interest</th><th class="p-3 text-right">Payment</th><th class="p-3 text-right">Closing</th></tr></thead><tbody id="tbody"></tbody></table></div></section>
+<section id="guides" class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-5"><article class="bg-white dark:bg-slate-900 p-6 rounded-3xl border"><h2 class="text-2xl font-black">Home Loan EMI क्या है?</h2><p class="mt-3 text-slate-600 dark:text-slate-300 leading-7">EMI एक नियमित repayment amount है जिसमें loan principal और interest शामिल होते हैं। Reducing-balance method में interest outstanding balance पर calculate होता है।</p></article><article class="bg-white dark:bg-slate-900 p-6 rounded-3xl border"><h2 class="text-2xl font-black">Years और Months दोनों क्यों?</h2><p class="mt-3 text-slate-600 dark:text-slate-300 leading-7">Long-term loan को Years में और short-term loan को Months में calculate किया जा सकता है। User जो option चुनेगा, calculator उसी tenure को use करेगा।</p></article><article class="bg-white dark:bg-slate-900 p-6 rounded-3xl border"><h2 class="text-2xl font-black">Tax Benefits</h2><p class="mt-3 text-slate-600 dark:text-slate-300 leading-7">Section 24 और Section 80C से जुड़े home-loan deductions eligibility और current tax rules पर निर्भर करते हैं। Filing से पहले official tax guidance verify करें।</p></article><article class="bg-white dark:bg-slate-900 p-6 rounded-3xl border"><h2 class="text-2xl font-black">Prepayment</h2><p class="mt-3 text-slate-600 dark:text-slate-300 leading-7">Extra monthly payment outstanding principal को जल्दी कम कर सकती है। Calculator इसका estimated tenure और interest saving दिखाता है।</p></article></section>
+<section id="faq" class="max-w-4xl mx-auto px-4 py-10"><h2 class="text-3xl font-black text-center">Frequently Asked Questions</h2><div class="space-y-3 mt-6"><details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border"><summary class="font-bold">क्या Months option है?</summary><p class="mt-2 text-slate-500">हाँ, Months चुनकर 1 से 360 तक tenure डाल सकते हैं।</p></details><details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border"><summary class="font-bold">क्या 6 Months अपने-आप 1 Year होगा?</summary><p class="mt-2 text-slate-500">नहीं। Months option में 6 डालने पर exactly 6 months use होंगे।</p></details><details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border"><summary class="font-bold">क्या ₹1,000 जैसे छोटे amount की calculation होगी?</summary><p class="mt-2 text-slate-500">हाँ, amount input छोटे और बड़े loan amounts के लिए है।</p></details><details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border"><summary class="font-bold">क्या Flat Interest भी है?</summary><p class="mt-2 text-slate-500">हाँ, Reducing Balance के साथ Flat Interest method भी selectable है।</p></details><details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border"><summary class="font-bold">क्या result खुद tenure बदलता है?</summary><p class="mt-2 text-slate-500">नहीं। Calculation केवल user input/option बदलने पर update होती है।</p></details></div></section>
+<footer class="border-t mt-10"><div class="max-w-7xl mx-auto px-4 py-8 flex justify-between gap-4 text-sm text-slate-500"><b>EMIWala</b><span>Privacy • Disclaimer • About • Contact</span></div></footer>
+<script>
+const $=id=>document.getElementById(id), money=n=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(n||0);let rateType='annual',tenureType='years',method='reduce',chart,rows=[];
+function sync(){let y=tenureType==='years',v=Math.max(1,Math.min(y?30:360,+$('term').value||1));$('term').max=y?30:360;$('termr').max=y?30:360;$('term').value=v;$('termr').value=v;$('unit').textContent=y?'Years':'Months';$('hint').textContent=y?`${v} Years = ${v*12} Months`:`${v} Months = ${(v/12).toFixed(2)} Years`}
+function reducing(P,r,n,extra=0){let emi=r?P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):P/n,pay=emi+extra,b=P,totalI=0,totalP=0,a=[];for(let m=1;m<=n+1200&&b>.005;m++){let i=b*r,pr=Math.min(b,Math.max(0,pay-i));if(!pr&&r)break;let p=pr+i;b-=pr;totalI+=i;totalP+=p;a.push({m,o:b+pr,pr,i,p,c:b})}return{emi,i:totalI,p:totalP,a}}
+function flat(P,rate,n){let mr=rateType==='annual'?rate/12:rate,I=P*(mr/100)*n,T=P+I,e=T/n,b=P,a=[];for(let m=1;m<=n;m++){let pr=P/n,i=I/n;b-=pr;a.push({m,o:b+pr,pr,i,p:pr+i,c:Math.max(0,b)})}return{emi:e,i:I,p:T,a}}
+function calc(){let P=Math.max(100,Math.min(1e8,+$('amt').value||0)),n=tenureType==='years'?+$('term').value*12:+$('term').value,r=rateType==='annual'?(+$('rate').value||0)/1200:(+$('rate').value||0)/100,res=method==='reduce'?reducing(P,r,n,+$('extra').value||0):flat(P,+$('rate').value||0,n);rows=res.a;$('emi').textContent=money(res.emi);$('interest').textContent=money(res.i);$('total').textContent=money(res.p);$('mode').textContent=method==='reduce'?'Reducing Balance method':'Flat Interest method';let y=[];for(let i=0;i<rows.length;i+=12){let c=rows.slice(i,i+12);y.push({y:Math.ceil((i+1)/12),o:c[0].o,pr:c.reduce((s,x)=>s+x.pr,0),i:c.reduce((s,x)=>s+x.i,0),p:c.reduce((s,x)=>s+x.p,0),c:c.at(-1).c})}$('tbody').innerHTML=y.map(x=>`<tr class="border-t"><td class="p-3 font-bold">Year ${x.y}</td><td class="p-3 text-right">${money(x.o)}</td><td class="p-3 text-right">${money(x.pr)}</td><td class="p-3 text-right">${money(x.i)}</td><td class="p-3 text-right">${money(x.p)}</td><td class="p-3 text-right">${money(x.c)}</td></tr>`).join('');if(chart)chart.destroy();chart=new Chart($('chart'),{type:'doughnut',data:{labels:['Principal','Interest'],datasets:[{data:[P,res.i]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});let ex=+$('extra').value||0;if(method==='reduce'&&ex){let base=reducing(P,r,n,0);$('pre').classList.remove('hidden');$('newterm').textContent=rows.length+' months';$('saved').textContent=money(Math.max(0,base.i-res.i))}else $('pre').classList.add('hidden')}
+function pair(a,b){$(a).oninput=()=>{$(b).value=$(a).value;calc()};$(b).oninput=()=>{$(a).value=$(b).value;calc()}}pair('amt','amtr');pair('rate','rater');$('term').oninput=()=>{sync();calc()};$('termr').oninput=()=>{$('term').value=$('termr').value;sync();calc()};$('extra').oninput=calc;
+$('annual').onclick=()=>{rateType='annual';$('annual').className='px-3 py-2 rounded-l-lg bg-blue-600 text-white text-sm font-bold';$('monthly').className='px-3 py-2 rounded-r-lg border text-sm font-bold';$('rater').max=30;calc()};$('monthly').onclick=()=>{rateType='monthly';$('monthly').className='px-3 py-2 rounded-r-lg bg-blue-600 text-white text-sm font-bold';$('annual').className='px-3 py-2 rounded-l-lg border text-sm font-bold';$('rater').max=5;if(+$('rate').value>5)$('rate').value=5;$('rater').value=$('rate').value;calc()};
+function tenure(t){tenureType=t;document.querySelectorAll('.tenure').forEach(x=>x.className='tenure p-3 rounded-xl border font-bold');let b=$(t);b.className='tenure active p-3 rounded-xl border-2 border-blue-600 bg-blue-50 dark:bg-blue-950 font-bold';sync();calc()}$('years').onclick=()=>tenure('years');$('months').onclick=()=>tenure('months');function meth(m){method=m;document.querySelectorAll('.method').forEach(x=>x.className='method p-3 rounded-xl border font-bold');$(m==='reduce'?'reduce':'flat').className='method active p-3 rounded-xl border-2 border-blue-600 bg-blue-50 dark:bg-blue-950 font-bold';calc()}$('reduce').onclick=()=>meth('reduce');$('flat').onclick=()=>meth('flat');
+$('reset').onclick=()=>{location.reload()};$('csv').onclick=()=>{let s='Month,Opening,Principal,Interest,Payment,Closing\n'+rows.map(x=>[x.m,x.o.toFixed(2),x.pr.toFixed(2),x.i.toFixed(2),x.p.toFixed(2),x.c.toFixed(2)].join(',')).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv'}));a.download='emiwala-amortization.csv';a.click()};$('dark').onclick=()=>{document.documentElement.classList.toggle('dark');$('dark').textContent=document.documentElement.classList.contains('dark')?'☀️':'🌙'};sync();calc();
+</script></body></html>
