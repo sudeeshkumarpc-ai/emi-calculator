@@ -1,0 +1,9 @@
+{
+  "name": "EMIWala – Loan Calculators",
+  "short_name": "EMIWala",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f6f9ff",
+  "theme_color": "#0b5cff",
+  "description": "Hindi loan calculators and educational guides."
+}
